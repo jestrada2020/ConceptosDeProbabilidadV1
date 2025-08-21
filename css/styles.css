@@ -1,0 +1,145 @@
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            transition: all 0.3s ease;
+        }
+        
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #e5e5e5;
+        }
+        
+        .venn-container {
+            position: relative;
+            width: 400px;
+            height: 300px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .venn-circle {
+            position: absolute;
+            border: 3px solid;
+            border-radius: 50%;
+            opacity: 0.7;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .venn-circle:hover {
+            opacity: 0.9;
+            transform: scale(1.05);
+        }
+        
+        /* Estilos para las operaciones de Venn */
+        .operation-highlight {
+            filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
+            animation: highlight-glow 0.5s ease-in-out;
+        }
+        
+        .operation-path {
+            filter: drop-shadow(1px 1px 2px rgba(0,0,0,0.4));
+        }
+        
+        @keyframes highlight-glow {
+            0% { opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { opacity: 1; }
+        }
+        
+        /* Mejorar los botones de operaciones */
+        .venn-operation {
+            transition: all 0.3s ease;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+        
+        .venn-operation:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .venn-operation.ring-4 {
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.5);
+            transform: translateY(-1px);
+        }
+        
+        .formula-box {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .interactive-table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 20px 0;
+        }
+        
+        .interactive-table td, .interactive-table th {
+            border: 2px solid #3b82f6;
+            padding: 10px;
+            text-align: center;
+        }
+        
+        .interactive-table input {
+            width: 100%;
+            border: none;
+            background: transparent;
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .result-highlight {
+            background-color: #fef3c7;
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid #f59e0b;
+            margin: 10px 0;
+        }
+        
+        .animation-fade {
+            animation: fadeIn 0.5s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .probability-bar {
+            height: 20px;
+            background: linear-gradient(to right, #ef4444, #f59e0b, #10b981);
+            border-radius: 10px;
+            position: relative;
+            margin: 10px 0;
+        }
+        
+        .probability-marker {
+            position: absolute;
+            top: -5px;
+            width: 2px;
+            height: 30px;
+            background: #1f2937;
+            transition: left 0.3s ease;
+        }
+        
+        .chart-container {
+            position: relative;
+            height: 300px;
+            margin: 20px 0;
+        }
+    

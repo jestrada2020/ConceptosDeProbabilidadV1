@@ -8,6 +8,17 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+    </script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script src="https://cdn.geogebra.org/apps/deployggb.js"></script>
     <link rel="stylesheet" href="css/styles.css">
@@ -122,26 +133,26 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div class="formula-box">
                         <h4 class="font-bold mb-2">Leyes Conmutativas</h4>
-                        <div class="text-lg">A ∪ B = B ∪ A</div>
-                        <div class="text-lg">A ∩ B = B ∩ A</div>
+                        <div class="text-lg">$$A \cup B = B \cup A$$</div>
+                        <div class="text-lg">$$A \cap B = B \cap A$$</div>
                     </div>
                     
                     <div class="formula-box">
                         <h4 class="font-bold mb-2">Leyes Asociativas</h4>
-                        <div class="text-sm">(A ∪ B) ∪ C = A ∪ (B ∪ C)</div>
-                        <div class="text-sm">(A ∩ B) ∩ C = A ∩ (B ∩ C)</div>
+                        <div class="text-sm">$$(A \cup B) \cup C = A \cup (B \cup C)$$</div>
+                        <div class="text-sm">$$(A \cap B) \cap C = A \cap (B \cap C)$$</div>
                     </div>
                     
                     <div class="formula-box">
                         <h4 class="font-bold mb-2">Leyes Distributivas</h4>
-                        <div class="text-sm">A ∪ (B ∩ C) = (A ∪ B) ∩ (A ∪ C)</div>
-                        <div class="text-sm">A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)</div>
+                        <div class="text-sm">$$A \cup (B \cap C) = (A \cup B) \cap (A \cup C)$$</div>
+                        <div class="text-sm">$$A \cap (B \cup C) = (A \cap B) \cup (A \cap C)$$</div>
                     </div>
                     
                     <div class="formula-box">
                         <h4 class="font-bold mb-2">Leyes de De Morgan</h4>
-                        <div class="text-sm">(A ∪ B)' = A' ∩ B'</div>
-                        <div class="text-sm">(A ∩ B)' = A' ∪ B'</div>
+                        <div class="text-sm">$$(A \cup B)^c = A^c \cap B^c$$</div>
+                        <div class="text-sm">$$(A \cap B)^c = A^c \cup B^c$$</div>
                     </div>
                 </div>
             </div>
@@ -161,16 +172,16 @@
                     <div class="space-y-4">
                         <div class="formula-box">
                             <h4 class="font-bold">Definición Frecuentista</h4>
-                            <div class="text-lg mt-2">P(A) = n(A) / n(S)</div>
-                            <p class="text-sm mt-2">Donde n(A) es el número de casos favorables y n(S) el total de casos posibles</p>
+                            <div class="text-lg mt-2">$$P(A) = \frac{n(A)}{n(S)}$$</div>
+                            <p class="text-sm mt-2">Donde $n(A)$ es el número de casos favorables y $n(S)$ el total de casos posibles</p>
                         </div>
                         
                         <div class="formula-box">
                             <h4 class="font-bold">Axiomas de Probabilidad</h4>
                             <ul class="text-sm mt-2 space-y-1">
-                                <li>1. P(A) ≥ 0 para todo evento A</li>
-                                <li>2. P(S) = 1 donde S es el espacio muestral</li>
-                                <li>3. P(A ∪ B) = P(A) + P(B) si A ∩ B = ∅</li>
+                                <li>1. $P(A) \geq 0$ para todo evento $A$</li>
+                                <li>2. $P(S) = 1$ donde $S$ es el espacio muestral</li>
+                                <li>3. $P(A \cup B) = P(A) + P(B)$ si $A \cap B = \emptyset$</li>
                             </ul>
                         </div>
                     </div>
@@ -406,21 +417,21 @@
                     <div class="space-y-4">
                         <div class="formula-box">
                             <h4 class="font-bold mb-2">Probabilidad Condicional</h4>
-                            <div class="text-xl">P(A|B) = P(A ∩ B) / P(B)</div>
-                            <p class="text-sm mt-2">Probabilidad de A dado que B ocurrió</p>
+                            <div class="text-xl">$$P(A|B) = \frac{P(A \cap B)}{P(B)}$$</div>
+                            <p class="text-sm mt-2">Probabilidad de $A$ dado que $B$ ocurrió</p>
                         </div>
                         
                         <div class="formula-box">
                             <h4 class="font-bold mb-2">Regla del Producto</h4>
-                            <div class="text-lg">P(A ∩ B) = P(A|B) × P(B)</div>
-                            <div class="text-lg">P(A ∩ B) = P(B|A) × P(A)</div>
+                            <div class="text-lg">$$P(A \cap B) = P(A|B) \times P(B)$$</div>
+                            <div class="text-lg">$$P(A \cap B) = P(B|A) \times P(A)$$</div>
                         </div>
                         
                         <div class="formula-box">
                             <h4 class="font-bold mb-2">Independencia</h4>
-                            <div class="text-lg">Si A y B son independientes:</div>
-                            <div class="text-lg">P(A|B) = P(A)</div>
-                            <div class="text-lg">P(A ∩ B) = P(A) × P(B)</div>
+                            <div class="text-lg">Si $A$ y $B$ son independientes:</div>
+                            <div class="text-lg">$$P(A|B) = P(A)$$</div>
+                            <div class="text-lg">$$P(A \cap B) = P(A) \times P(B)$$</div>
                         </div>
                     </div>
                 </div>
@@ -510,17 +521,18 @@
                     
                     <div class="formula-box text-center">
                         <h4 class="font-bold mb-4">Fórmula General</h4>
-                        <div class="text-2xl mb-4">P(A|B) = [P(B|A) × P(A)] / P(B)</div>
-                        <div class="text-lg">P(B) = Σ P(B|Aᵢ) × P(Aᵢ)</div>
+                        <div class="text-2xl mb-4">
+                            $$P(A_k|B) = \frac{P(A_k) \cdot P(B|A_k)}{\sum_{j=1}^{n} P(A_j) \cdot P(B|A_j)}$$
+                        </div>
                     </div>
                     
                     <div class="mt-6">
                         <h4 class="font-semibold mb-3">Interpretación:</h4>
                         <ul class="text-sm space-y-2">
-                            <li><strong>P(A|B):</strong> Probabilidad posterior (lo que queremos encontrar)</li>
-                            <li><strong>P(B|A):</strong> Verosimilitud (probabilidad de evidencia dado la hipótesis)</li>
-                            <li><strong>P(A):</strong> Probabilidad prior (conocimiento previo)</li>
-                            <li><strong>P(B):</strong> Probabilidad marginal de la evidencia</li>
+                            <li><strong>$P(A_k|B)$:</strong> Probabilidad posterior de la hipótesis $A_k$ dado el evento $B$</li>
+                            <li><strong>$P(B|A_k)$:</strong> Verosimilitud - probabilidad del evento $B$ dada la hipótesis $A_k$</li>
+                            <li><strong>$P(A_k)$:</strong> Probabilidad prior de la hipótesis $A_k$</li>
+                            <li><strong>$\sum_{j=1}^{n} P(A_j) \cdot P(B|A_j)$:</strong> Probabilidad marginal del evento $B$</li>
                         </ul>
                     </div>
                 </div>

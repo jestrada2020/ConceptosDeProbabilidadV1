@@ -28,11 +28,10 @@
     <header class="bg-blue-600 text-white p-4 shadow-lg">
         <div class="container mx-auto flex justify-between items-center">
             <h1 class="text-2xl font-bold">
-                <i class="fas fa-chart-line mr-2"></i>
-                Probabilidad y Bioestadística Interactiva
+                <i class="fas fa-chart-line mr-2"></i>Probabilidad y Bioestadística Interactiva
             </h1>
             <button id="darkModeToggle" class="bg-blue-500 hover:bg-blue-700 px-4 py-2 rounded">
-                <i class="fas fa-moon"></i> Modo Oscuro
+                <i class="fas fa-moon mr-2"></i>Modo Oscuro
             </button>
         </div>
     </header>
@@ -80,7 +79,7 @@
                         <!-- GeoGebra application will be embedded here -->
                     </div>
                     <div class="mt-4 text-xs text-gray-500">
-                        <i class="fas fa-info-circle mr-1"></i>
+                        <i class="fas fa-info-circle mr-2"></i>
                         Utiliza los controles de la aplicación para explorar diferentes operaciones entre conjuntos.
                     </div>
                     <div class="mt-3 p-3 bg-blue-50 border-l-4 border-blue-400 text-sm text-gray-700">
@@ -233,7 +232,7 @@
                             <button id="flipCoin" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
                                 Lanzar
                             </button>
-                            <div id="coinStats" class="mt-2 text-sm">
+                            <div id="coinStats" class="mt-3 text-sm">
                                 Caras: <span id="headsCount">0</span> | 
                                 Cruces: <span id="tailsCount">0</span>
                             </div>
@@ -262,7 +261,7 @@
                             <button id="drawCard" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600">
                                 Extraer
                             </button>
-                            <div id="cardStats" class="mt-2 text-xs">
+                            <div id="cardStats" class="mt-3 text-xs space-y-1">
                                 <div>Corazones: <span id="heartsCount">0</span></div>
                                 <div>Diamantes: <span id="diamondsCount">0</span></div>
                                 <div>Tréboles: <span id="clubsCount">0</span></div>
@@ -626,15 +625,15 @@
                         
                         <div class="space-y-3">
                             <div>
-                                <label class="block text-sm font-medium mb-1">Sensibilidad (%):</label>
+                                <label class="block text-sm font-medium mb-2">Sensibilidad (%):</label>
                                 <input type="number" id="sensitivity" class="w-full p-2 border rounded" value="95" min="0" max="100">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium mb-1">Especificidad (%):</label>
+                                <label class="block text-sm font-medium mb-2">Especificidad (%):</label>
                                 <input type="number" id="specificity" class="w-full p-2 border rounded" value="90" min="0" max="100">
                             </div>
                             <div>
-                                <label class="block text-sm font-medium mb-1">Prevalencia (%):</label>
+                                <label class="block text-sm font-medium mb-2">Prevalencia (%):</label>
                                 <input type="number" id="prevalence" class="w-full p-2 border rounded" value="1" min="0" max="100" step="0.1">
                             </div>
                             
@@ -656,14 +655,55 @@
                     <i class="fas fa-chart-line mr-2"></i>Visualización del Proceso de Inferencia
                 </h3>
                 
-                <div class="chart-container">
+                <div class="mb-4 p-4 bg-yellow-50 border-l-4 border-yellow-400 rounded">
+                    <h4 class="font-semibold text-yellow-800 mb-2">¿Cómo funciona el Teorema de Bayes?</h4>
+                    <p class="text-sm text-yellow-700">
+                        El Teorema de Bayes nos permite actualizar nuestras creencias (probabilidades prior) 
+                        cuando recibimos nueva evidencia. La animación muestra cómo las probabilidades 
+                        de diferentes hipótesis cambian paso a paso al aplicar el teorema.
+                    </p>
+                </div>
+                
+                <div class="chart-container bg-gray-50 p-4 rounded mb-4" style="height: 400px;">
                     <canvas id="bayesVisualization"></canvas>
                 </div>
                 
-                <div class="mt-4 text-center">
-                    <button id="animateBayes" class="bg-indigo-500 text-white px-6 py-2 rounded hover:bg-indigo-600">
-                        <i class="fas fa-play mr-2"></i>Animar Proceso de Bayes
-                    </button>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                    <div class="text-center">
+                        <button id="animateBayes" class="bg-indigo-500 text-white px-6 py-2 rounded hover:bg-indigo-600 w-full">
+                            <i class="fas fa-play mr-2"></i>Animar Proceso de Bayes
+                        </button>
+                        <p class="text-xs text-gray-500 mt-2">Muestra la evolución de las probabilidades</p>
+                    </div>
+                    <div class="text-center">
+                        <button id="stopAnimation" class="bg-gray-500 text-white px-6 py-2 rounded hover:bg-gray-600 w-full">
+                            <i class="fas fa-stop mr-2"></i>Detener Animación
+                        </button>
+                        <p class="text-xs text-gray-500 mt-2">Detiene la animación en curso</p>
+                    </div>
+                </div>
+                
+                <div class="mt-4 grid grid-cols-1 md:grid-cols-4 gap-4 text-sm">
+                    <div class="bg-red-100 p-3 rounded">
+                        <div class="w-4 h-4 bg-red-500 rounded mb-1"></div>
+                        <strong>Hipótesis A</strong>
+                        <p class="text-xs text-gray-600">Primera alternativa</p>
+                    </div>
+                    <div class="bg-blue-100 p-3 rounded">
+                        <div class="w-4 h-4 bg-blue-500 rounded mb-1"></div>
+                        <strong>Hipótesis B</strong>
+                        <p class="text-xs text-gray-600">Segunda alternativa</p>
+                    </div>
+                    <div class="bg-yellow-100 p-3 rounded">
+                        <div class="w-4 h-4 bg-yellow-500 rounded mb-1"></div>
+                        <strong>Hipótesis C</strong>
+                        <p class="text-xs text-gray-600">Tercera alternativa</p>
+                    </div>
+                    <div class="bg-gray-100 p-3 rounded">
+                        <i class="fas fa-info-circle text-gray-500 mb-1 block"></i>
+                        <strong>Proceso</strong>
+                        <p class="text-xs text-gray-600">Actualización bayesiana</p>
+                    </div>
                 </div>
             </div>
         </div>

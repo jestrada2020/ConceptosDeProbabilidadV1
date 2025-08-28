@@ -1,8 +1,17 @@
 
-        // TEOREMA DE BAYES
-        document.getElementById('numHypotheses').addEventListener('change', (e) => {
+// TEOREMA DE BAYES
+document.addEventListener('DOMContentLoaded', function() {
+    let bayesChart = null;
+    let animationInterval = null;
+    let isAnimating = false;
+
+    // Verificar que los elementos existen antes de agregar event listeners
+    const numHypothesesElement = document.getElementById('numHypotheses');
+    if (numHypothesesElement) {
+        numHypothesesElement.addEventListener('change', (e) => {
             generateBayesInputs(parseInt(e.target.value));
         });
+    }
 
         function generateBayesInputs(numHyp) {
             const container = document.getElementById('bayesInputs');
@@ -31,7 +40,9 @@
             container.innerHTML = html;
         }
 
-        document.getElementById('calculateBayes').addEventListener('click', () => {
+    const calculateBayesElement = document.getElementById('calculateBayes');
+    if (calculateBayesElement) {
+        calculateBayesElement.addEventListener('click', () => {
             const priorInputs = document.querySelectorAll('.prior-prob');
             const likelihoodInputs = document.querySelectorAll('.likelihood');
             
@@ -76,6 +87,7 @@
             // Actualizar visualización
             updateBayesVisualization(priors, posteriors);
         });
+    }
 
         function updateBayesVisualization(priors, posteriors) {
             const ctx = document.getElementById('bayesVisualization').getContext('2d');
@@ -117,8 +129,10 @@
             });
         }
 
-        // Ejemplos prácticos de Bayes
-        document.getElementById('solveUrns').addEventListener('click', () => {
+    // Ejemplos prácticos de Bayes
+    const solveUrnsElement = document.getElementById('solveUrns');
+    if (solveUrnsElement) {
+        solveUrnsElement.addEventListener('click', () => {
             // Problema de las urnas
             const priorA = 1/3, priorB = 1/3, priorC = 1/3;
             const likelihoodA = 3/8, likelihoodB = 2/3, likelihoodC = 2/5;
@@ -139,8 +153,11 @@
                 </div>
             `;
         });
+    }
 
-        document.getElementById('solveMedical').addEventListener('click', () => {
+    const solveMedicalElement = document.getElementById('solveMedical');
+    if (solveMedicalElement) {
+        solveMedicalElement.addEventListener('click', () => {
             const sensitivity = parseFloat(document.getElementById('sensitivity').value) / 100;
             const specificity = parseFloat(document.getElementById('specificity').value) / 100;
             const prevalence = parseFloat(document.getElementById('prevalence').value) / 100;
@@ -162,6 +179,190 @@
                 </div>
             `;
         });
+    }
 
-        generateBayesInputs(2);
+    // Event listeners para los botones de animación
+    const animateBayesElement = document.getElementById('animateBayes');
+    if (animateBayesElement) {
+        animateBayesElement.addEventListener('click', () => {
+            if (!isAnimating) {
+                animateBayesProcess();
+            }
+        });
+    }
+
+    const stopAnimationElement = document.getElementById('stopAnimation');
+    if (stopAnimationElement) {
+        stopAnimationElement.addEventListener('click', () => {
+            stopBayesAnimation();
+        });
+    }
+
+        function animateBayesProcess() {
+            if (isAnimating) return;
+            
+            isAnimating = true;
+            const ctx = document.getElementById('bayesVisualization').getContext('2d');
+            
+            if (bayesChart) bayesChart.destroy();
+            
+            // Datos de ejemplo para la animación
+            const steps = [
+                { 
+                    title: "Paso 1: Probabilidades Prior",
+                    data: [0.4, 0.35, 0.25],
+                    description: "Creencias iniciales sobre cada hipótesis antes de observar evidencia"
+                },
+                { 
+                    title: "Paso 2: Nueva Evidencia Observada",
+                    data: [0.4, 0.35, 0.25],
+                    description: "Observamos nueva evidencia E que puede cambiar nuestras creencias"
+                },
+                { 
+                    title: "Paso 3: Calculando Verosimilitudes",
+                    data: [0.3, 0.55, 0.15],
+                    description: "Evaluamos P(E|H) para cada hipótesis - ¿qué tan probable es la evidencia bajo cada hipótesis?"
+                },
+                { 
+                    title: "Paso 4: Aplicando Teorema de Bayes",
+                    data: [0.2, 0.65, 0.15],
+                    description: "Multiplicamos prior × verosimilitud y normalizamos para obtener las posteriores"
+                },
+                { 
+                    title: "Paso 5: Probabilidades Posteriores",
+                    data: [0.15, 0.75, 0.10],
+                    description: "Nuevas creencias actualizadas: la Hipótesis B es ahora la más probable"
+                }
+            ];
+            
+            let currentStep = 0;
+            
+            function nextStep() {
+                if (!isAnimating || currentStep >= steps.length) {
+                    if (currentStep >= steps.length) {
+                        // Reiniciar animación si no se ha detenido
+                        currentStep = 0;
+                        if (isAnimating) {
+                            animationInterval = setTimeout(nextStep, 2000);
+                        }
+                    }
+                    return;
+                }
+                
+                const step = steps[currentStep];
+                
+                if (bayesChart) bayesChart.destroy();
+                
+                bayesChart = new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Hipótesis A', 'Hipótesis B', 'Hipótesis C'],
+                        datasets: [{
+                            data: step.data,
+                            backgroundColor: [
+                                'rgba(255, 99, 132, 0.8)',
+                                'rgba(54, 162, 235, 0.8)',
+                                'rgba(255, 205, 86, 0.8)'
+                            ],
+                            borderColor: [
+                                'rgb(255, 99, 132)',
+                                'rgb(54, 162, 235)',
+                                'rgb(255, 205, 86)'
+                            ],
+                            borderWidth: 2
+                        }]
+                    },
+                    options: {
+                        responsive: true,
+                        maintainAspectRatio: false,
+                        animation: {
+                            duration: 1500,
+                            easing: 'easeOutCubic'
+                        },
+                        plugins: {
+                            title: {
+                                display: true,
+                                text: step.title,
+                                font: { size: 16, weight: 'bold' }
+                            },
+                            legend: {
+                                position: 'bottom',
+                                labels: {
+                                    generateLabels: function(chart) {
+                                        const data = chart.data;
+                                        return data.labels.map((label, i) => ({
+                                            text: `${label}: ${(data.datasets[0].data[i] * 100).toFixed(1)}%`,
+                                            fillStyle: data.datasets[0].backgroundColor[i],
+                                            strokeStyle: data.datasets[0].borderColor[i],
+                                            lineWidth: data.datasets[0].borderWidth
+                                        }));
+                                    }
+                                }
+                            }
+                        }
+                    }
+                });
+                
+                // Mostrar descripción
+                updateAnimationDescription(step.description, currentStep + 1, steps.length);
+                
+                currentStep++;
+                animationInterval = setTimeout(() => {
+                    nextStep();
+                }, 3500);
+            }
+            
+            nextStep();
+        }
+
+        function stopBayesAnimation() {
+            isAnimating = false;
+            if (animationInterval) {
+                clearTimeout(animationInterval);
+                animationInterval = null;
+            }
+            
+            // Limpiar descripción
+            const descContainer = document.getElementById('animationDescription');
+            if (descContainer) {
+                descContainer.innerHTML = `
+                    <p class="text-sm text-gray-700">
+                        <i class="fas fa-pause-circle mr-2 text-gray-500"></i>
+                        <strong>Animación detenida.</strong> Haz clic en "Animar Proceso de Bayes" para reiniciar.
+                    </p>
+                `;
+            }
+        }
+
+        function updateAnimationDescription(description, currentStep, totalSteps) {
+            // Buscar si existe el contenedor de descripción, si no, crearlo
+            let descContainer = document.getElementById('animationDescription');
+            if (!descContainer) {
+                const visualizationSection = document.querySelector('#bayesVisualization').parentNode.parentNode;
+                descContainer = document.createElement('div');
+                descContainer.id = 'animationDescription';
+                descContainer.className = 'mt-4 p-4 bg-blue-50 border-l-4 border-blue-400 rounded';
+                visualizationSection.appendChild(descContainer);
+            }
+            
+            const progressBar = currentStep && totalSteps ? 
+                `<div class="mt-2 bg-gray-200 rounded-full h-2">
+                    <div class="bg-blue-600 h-2 rounded-full transition-all duration-500" style="width: ${(currentStep/totalSteps)*100}%"></div>
+                </div>
+                <p class="text-xs text-gray-500 mt-1">Paso ${currentStep} de ${totalSteps}</p>` : '';
+            
+            descContainer.innerHTML = `
+                <p class="text-sm text-gray-700">
+                    <i class="fas fa-info-circle mr-2 text-blue-500"></i>
+                    <strong>Explicación:</strong> ${description}
+                </p>
+                ${progressBar}
+            `;
+        }
+
+    // Inicializar con 2 hipótesis por defecto
+    generateBayesInputs(2);
+
+// Cerrar el DOMContentLoaded
+});
     

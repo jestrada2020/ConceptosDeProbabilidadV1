@@ -75,6 +75,18 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
         
+        /* Mejorar espaciado en cajas de fórmulas */
+        .formula-box h4 {
+            margin-bottom: 0.75rem !important;
+            letter-spacing: 0.025em;
+            line-height: 1.4;
+        }
+        
+        .formula-box .text-lg, .formula-box .text-sm {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
         .interactive-table {
             border-collapse: collapse;
             width: 100%;
@@ -141,5 +153,207 @@
             position: relative;
             height: 300px;
             margin: 20px 0;
+        }
+        
+        /* Asegurar espaciado correcto para íconos FontAwesome */
+        .fas:not(.mr-0):not(.mr-1):not(.mr-3):not(.mr-4):not(.mr-5):not(.mr-6), 
+        .far:not(.mr-0):not(.mr-1):not(.mr-3):not(.mr-4):not(.mr-5):not(.mr-6), 
+        .fab:not(.mr-0):not(.mr-1):not(.mr-3):not(.mr-4):not(.mr-5):not(.mr-6) {
+            margin-right: 0.5rem !important;
+        }
+        
+        /* Reforzar el espaciado para íconos con mr-2 que no se muestran correctamente */
+        .fas.mr-2, .far.mr-2, .fab.mr-2 {
+            margin-right: 0.5rem !important;
+        }
+        
+        /* Espacio adicional después de íconos seguidos de texto directo */
+        .fas.fa-info-circle.mr-2::after,
+        .fas.fa-calculator.mr-2::after,
+        .fas.fa-circle-notch.mr-2::after {
+            content: " ";
+            white-space: pre;
+        }
+        
+        /* Específicamente para íconos que aparecen al inicio de texto */
+        h1 .fas, h2 .fas, h3 .fas, h4 .fas, h5 .fas, h6 .fas,
+        .font-semibold .fas, .font-bold .fas,
+        button .fas, .tab-btn .fas {
+            margin-right: 0.5rem !important;
+        }
+        
+        /* Para íconos en bloques de información */
+        .text-gray-500 .fas, .text-gray-600 .fas {
+            margin-right: 0.25rem !important;
+        }
+        
+        /* Mejorar espaciado en tablas de contingencia */
+        .interactive-table th {
+            padding: 12px 8px !important;
+            line-height: 1.4;
+            letter-spacing: 0.025em;
+        }
+        
+        .interactive-table td {
+            padding: 10px 8px !important;
+            line-height: 1.3;
+        }
+        
+        /* Espaciado específico para etiquetas de variables en tablas */
+        .interactive-table th, .interactive-table td {
+            white-space: nowrap;
+            text-align: center;
+        }
+        
+        /* Mejorar legibilidad de texto en cursiva matemática */
+        .formula-box em, .formula-box i:not(.fas):not(.far):not(.fab) {
+            font-style: italic;
+            margin: 0 0.1em;
+            padding: 0 0.05em;
+        }
+        
+        /* Mejorar espaciado para etiquetas de formulario */
+        .font-medium, .font-semibold, .font-bold {
+            line-height: 1.5;
+            letter-spacing: 0.015em;
+        }
+        
+        /* Espaciado adicional para etiquetas de input */
+        label.font-medium {
+            margin-bottom: 0.5rem !important;
+            display: block;
+            line-height: 1.4;
+        }
+        
+        /* Mejorar el espaciado en elementos de lista y texto */
+        li, p {
+            line-height: 1.6;
+        }
+        
+        /* Espaciado específico para texto pequeño informativo */
+        .text-sm {
+            line-height: 1.5;
+            letter-spacing: 0.01em;
+        }
+        
+        .text-xs {
+            line-height: 1.4;
+            letter-spacing: 0.015em;
+        }
+        
+        /* Correcciones específicas para la pestaña conjuntos */
+        #conjuntos label {
+            word-spacing: 0.1em !important;
+            letter-spacing: 0.02em !important;
+        }
+        
+        /* Espaciado para texto con strong y elementos destacados */
+        strong {
+            margin-right: 0.25em;
+            letter-spacing: 0.01em;
+        }
+        
+        /* Espaciado específico para párrafos con íconos informativos */
+        .text-xs.text-gray-500 {
+            word-spacing: 0.15em;
+            letter-spacing: 0.02em;
+        }
+        
+        /* Mejor espaciado para texto en cajas informativas */
+        .bg-blue-50 p, .border-l-4 p {
+            word-spacing: 0.1em;
+            letter-spacing: 0.01em;
+            line-height: 1.6;
+        }
+        
+        /* Espaciado específico para etiquetas de formulario con paréntesis */
+        label.font-medium {
+            word-spacing: 0.1em !important;
+            letter-spacing: 0.02em !important;
+        }
+        
+        /* Regla general para mejorar el espaciado de texto que sigue inmediatamente a íconos */
+        .fas + *, .far + *, .fab + * {
+            margin-left: 0.1em;
+        }
+        
+        /* Solución específica para las etiquetas de la calculadora de cardinalidad */
+        #conjuntos .space-y-4 label.font-medium {
+            word-spacing: 0.15em !important;
+            letter-spacing: 0.025em !important;
+            font-weight: 500 !important;
+        }
+        
+        /* Selector más específico para etiquetas que siguen inputs de conjuntos */
+        label[class*="font-medium"]:not(:empty) {
+            word-spacing: 0.2em !important;
+            letter-spacing: 0.03em !important;
+        }
+        
+        /* Espaciado específico para etiquetas que preceden a inputs específicos */
+        input[id="setA"] + *,
+        input[id="setB"] + *,
+        input[id="setUniverse"] + * {
+            word-spacing: 0.2em !important;
+            letter-spacing: 0.03em !important;
+        }
+        
+        /* Solución más directa: selector por posición para las etiquetas de conjuntos */
+        #conjuntos .bg-white .space-y-4 > div > label {
+            word-spacing: 0.25em !important;
+            letter-spacing: 0.035em !important;
+            line-height: 1.5 !important;
+        }
+        
+        /* Espaciado específico para texto en paréntesis */
+        label.block.text-sm.font-medium.mb-2 {
+            white-space: normal !important;
+            overflow-wrap: break-word;
+        }
+        
+        /* Corrección específica para el problema del texto pegado en cursiva en los labels */
+        #conjuntos label.font-medium {
+            font-style: normal !important;
+            text-transform: none !important;
+        }
+        
+        /* Usar pseudo-elementos para insertar espacios en texto pegado */
+        #conjuntos label.font-medium::after {
+            content: "";
+            letter-spacing: normal;
+        }
+        
+        /* Forzar espaciado normal en cualquier texto en cursiva no deseado */
+        #conjuntos em, #conjuntos i:not(.fas):not(.far):not(.fab) {
+            font-style: normal !important;
+            word-spacing: 0.2em !important;
+            letter-spacing: 0.05em !important;
+        }
+        
+        /* Regla específica para arreglar texto pegado en etiquetas de conjuntos */
+        #conjuntos .space-y-4 label {
+            font-family: inherit !important;
+            font-weight: 500 !important;
+            font-style: normal !important;
+        }
+        
+        /* Solución definitiva para texto pegado - usar word-break y espaciado forzado */
+        #conjuntos label:contains("separado"):contains("comas"),
+        #conjuntos label[class*="font-medium"] {
+            word-break: break-word !important;
+            hyphens: auto !important;
+        }
+        
+        /* Espaciado forzado para contenido específico */
+        #conjuntos .calculadora-cardinalidad label,
+        #conjuntos .bg-white .space-y-4 label.block {
+            white-space: pre-wrap !important;
+        }
+        
+        /* Si el problema persiste, usar text-rendering para mejor espaciado */
+        #conjuntos label.font-medium {
+            text-rendering: optimizeLegibility !important;
+            -webkit-font-smoothing: antialiased !important;
+            -moz-osx-font-smoothing: grayscale !important;
         }
     

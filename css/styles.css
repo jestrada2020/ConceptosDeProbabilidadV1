@@ -356,4 +356,523 @@
             -webkit-font-smoothing: antialiased !important;
             -moz-osx-font-smoothing: grayscale !important;
         }
+        
+        /* Estilos específicos para el botón visualizar del simulador */
+        #visualize {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative !important;
+            z-index: 10 !important;
+            margin-top: 1rem !important;
+            background-color: #14b8a6 !important;
+            color: white !important;
+            padding: 12px 16px !important;
+            border: none !important;
+            border-radius: 6px !important;
+            font-weight: 600 !important;
+            font-size: 16px !important;
+            cursor: pointer !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        #visualize:hover {
+            background-color: #0d9488 !important;
+            transform: translateY(-1px) !important;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        #visualize:active {
+            transform: translateY(0) !important;
+        }
+        
+        /* Estilos para el Triángulo de Pascal */
+        .pascal-triangle {
+            font-family: monospace;
+            text-align: center;
+            line-height: 1.8;
+            margin-top: 15px;
+            background-color: #f5f3ff;
+            padding: 15px;
+            border-radius: 5px;
+            overflow-x: auto;
+        }
+        
+        .pascal-row {
+            margin-bottom: 5px;
+        }
+        
+        .pascal-num {
+            display: inline-block;
+            min-width: 3em;
+            text-align: center;
+            padding: 2px 6px;
+            margin: 0 2px;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .pascal-highlight {
+            background-color: #8b5cf6 !important;
+            color: white !important;
+            font-weight: bold !important;
+            transform: scale(1.1);
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.3);
+        }
+        
+        .pascal-num:hover {
+            background-color: rgba(139, 92, 246, 0.2);
+            transform: scale(1.05);
+        }
+        
+        /* Estilos específicos para el botón de Pascal */
+        #generatePascal {
+            display: block !important;
+            visibility: visible !important;
+            opacity: 1 !important;
+            background-color: #6366f1 !important;
+        }
+        
+        #generatePascal:hover {
+            background-color: #4f46e5 !important;
+        }
+        
+        /* ========== ESTILOS PARA MODO OSCURO - TEORÍA DE CONTEO ========== */
+        
+        /* Contenedores principales en modo oscuro */
+        .dark-mode #teoria-conteo .bg-white {
+            background-color: #2d2d2d !important;
+            color: #e5e5e5 !important;
+            border: 1px solid #404040 !important;
+        }
+        
+        /* Títulos y encabezados en modo oscuro */
+        .dark-mode #teoria-conteo h2,
+        .dark-mode #teoria-conteo h3,
+        .dark-mode #teoria-conteo h4,
+        .dark-mode #teoria-conteo h5 {
+            color: #f0f0f0 !important;
+        }
+        
+        /* Texto normal y párrafos en modo oscuro */
+        .dark-mode #teoria-conteo p,
+        .dark-mode #teoria-conteo li,
+        .dark-mode #teoria-conteo span:not(.pascal-highlight) {
+            color: #d0d0d0 !important;
+        }
+        
+        /* Inputs y controles en modo oscuro */
+        .dark-mode #teoria-conteo input[type="text"],
+        .dark-mode #teoria-conteo input[type="number"],
+        .dark-mode #teoria-conteo select {
+            background-color: #3a3a3a !important;
+            color: #e5e5e5 !important;
+            border: 1px solid #555 !important;
+        }
+        
+        .dark-mode #teoria-conteo input[type="text"]:focus,
+        .dark-mode #teoria-conteo input[type="number"]:focus,
+        .dark-mode #teoria-conteo select:focus {
+            background-color: #444 !important;
+            border-color: #6366f1 !important;
+            box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2) !important;
+        }
+        
+        /* Labels en modo oscuro */
+        .dark-mode #teoria-conteo label {
+            color: #e0e0e0 !important;
+            font-weight: 500 !important;
+        }
+        
+        /* Cajas de fórmulas en modo oscuro */
+        .dark-mode #teoria-conteo .formula-box {
+            background: linear-gradient(135deg, #4c1d95 0%, #5b21b6 100%) !important;
+            color: #f0f0f0 !important;
+            border: 1px solid #6d28d9 !important;
+        }
+        
+        /* Áreas de resultados en modo oscuro */
+        .dark-mode #teoria-conteo .bg-gray-50 {
+            background-color: #333 !important;
+            color: #e5e5e5 !important;
+            border: 1px solid #555 !important;
+        }
+        
+        /* Cajas de información en modo oscuro */
+        .dark-mode #teoria-conteo .bg-blue-50 {
+            background-color: #1e3a8a !important;
+            color: #dbeafe !important;
+            border-left-color: #3b82f6 !important;
+        }
+        
+        .dark-mode #teoria-conteo .bg-green-50 {
+            background-color: #14532d !important;
+            color: #dcfce7 !important;
+            border-left-color: #22c55e !important;
+        }
+        
+        .dark-mode #teoria-conteo .bg-yellow-50 {
+            background-color: #713f12 !important;
+            color: #fef3c7 !important;
+            border-left-color: #f59e0b !important;
+        }
+        
+        .dark-mode #teoria-conteo .bg-red-50 {
+            background-color: #7f1d1d !important;
+            color: #fecaca !important;
+            border-left-color: #ef4444 !important;
+        }
+        
+        .dark-mode #teoria-conteo .bg-purple-50 {
+            background-color: #581c87 !important;
+            color: #e9d5ff !important;
+            border-left-color: #a855f7 !important;
+        }
+        
+        /* Elementos de visualización en modo oscuro */
+        .dark-mode #teoria-conteo .bg-blue-100 {
+            background-color: #1e40af !important;
+            color: #dbeafe !important;
+        }
+        
+        .dark-mode #teoria-conteo .bg-green-100 {
+            background-color: #166534 !important;
+            color: #dcfce7 !important;
+        }
+        
+        .dark-mode #teoria-conteo .bg-yellow-100 {
+            background-color: #a16207 !important;
+            color: #fef3c7 !important;
+        }
+        
+        /* Triángulo de Pascal en modo oscuro */
+        .dark-mode .pascal-triangle {
+            background-color: #2d2d2d !important;
+            border: 1px solid #555 !important;
+            color: #e5e5e5 !important;
+        }
+        
+        .dark-mode .pascal-num {
+            background-color: rgba(75, 75, 75, 0.8) !important;
+            color: #e5e5e5 !important;
+            border: 1px solid #555 !important;
+        }
+        
+        .dark-mode .pascal-num:hover {
+            background-color: rgba(139, 92, 246, 0.4) !important;
+            color: #f0f0f0 !important;
+        }
+        
+        .dark-mode .pascal-highlight {
+            background-color: #8b5cf6 !important;
+            color: #ffffff !important;
+            border-color: #7c3aed !important;
+            box-shadow: 0 2px 8px rgba(139, 92, 246, 0.5) !important;
+        }
+        
+        /* Texto en cajas de ejemplo en modo oscuro */
+        .dark-mode #teoria-conteo .text-gray-500 {
+            color: #a0a0a0 !important;
+        }
+        
+        .dark-mode #teoria-conteo .text-gray-600 {
+            color: #b0b0b0 !important;
+        }
+        
+        .dark-mode #teoria-conteo .text-sm {
+            color: #d0d0d0 !important;
+        }
+        
+        .dark-mode #teoria-conteo .text-xs {
+            color: #c0c0c0 !important;
+        }
+        
+        /* Tablas en modo oscuro */
+        .dark-mode #teoria-conteo table {
+            background-color: #2d2d2d !important;
+            color: #e5e5e5 !important;
+        }
+        
+        .dark-mode #teoria-conteo th,
+        .dark-mode #teoria-conteo td {
+            border-color: #555 !important;
+            color: #e5e5e5 !important;
+        }
+        
+        .dark-mode #teoria-conteo th {
+            background-color: #3a3a3a !important;
+        }
+        
+        .dark-mode #teoria-conteo tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.05) !important;
+        }
+        
+        /* Botones disabled en modo oscuro */
+        .dark-mode #teoria-conteo button:disabled {
+            background-color: #4a4a4a !important;
+            color: #888 !important;
+            cursor: not-allowed !important;
+        }
+        
+        /* Mensajes de error en modo oscuro */
+        .dark-mode #teoria-conteo .text-red-500 {
+            color: #fca5a5 !important;
+        }
+        
+        .dark-mode #teoria-conteo .text-yellow-600 {
+            color: #fbbf24 !important;
+        }
+        
+        /* Enlaces en modo oscuro */
+        .dark-mode #teoria-conteo a {
+            color: #60a5fa !important;
+        }
+        
+        .dark-mode #teoria-conteo a:hover {
+            color: #93c5fd !important;
+        }
+        
+        /* Elementos strong y bold en modo oscuro */
+        .dark-mode #teoria-conteo strong,
+        .dark-mode #teoria-conteo .font-bold,
+        .dark-mode #teoria-conteo .font-semibold {
+            color: #f0f0f0 !important;
+        }
+        
+        /* Separadores y bordes en modo oscuro */
+        .dark-mode #teoria-conteo hr {
+            border-color: #555 !important;
+        }
+        
+        /* Scrollbars en modo oscuro */
+        .dark-mode #teoria-conteo ::-webkit-scrollbar {
+            background-color: #2d2d2d !important;
+        }
+        
+        .dark-mode #teoria-conteo ::-webkit-scrollbar-thumb {
+            background-color: #555 !important;
+            border-radius: 6px !important;
+        }
+        
+        .dark-mode #teoria-conteo ::-webkit-scrollbar-thumb:hover {
+            background-color: #666 !important;
+        }
+        
+        /* ========== ESTILOS PARA DIAGRAMAS DE ÁRBOL ========== */
+        
+        /* Contenedor principal del árbol */
+        .tree-diagram {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.4;
+            color: #2d3748;
+            overflow-x: auto;
+            padding: 20px;
+            background: linear-gradient(135deg, #f7fafc 0%, #edf2f7 100%);
+            border-radius: 8px;
+            border: 2px solid #e2e8f0;
+        }
+        
+        /* Nodos del árbol */
+        .tree-node {
+            display: inline-block;
+            margin: 4px;
+            padding: 8px 12px;
+            background-color: #ffffff;
+            border: 2px solid #cbd5e0;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 500;
+            text-align: center;
+            min-width: 40px;
+            transition: all 0.3s ease;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Nodos de diferentes niveles con colores */
+        .tree-node.level-0 {
+            background-color: #e6fffa;
+            border-color: #38b2ac;
+            color: #234e52;
+        }
+        
+        .tree-node.level-1 {
+            background-color: #ebf8ff;
+            border-color: #4299e1;
+            color: #2a4365;
+        }
+        
+        .tree-node.level-2 {
+            background-color: #faf5ff;
+            border-color: #9f7aea;
+            color: #44337a;
+        }
+        
+        .tree-node.level-3 {
+            background-color: #fffaf0;
+            border-color: #ed8936;
+            color: #7b341e;
+        }
+        
+        .tree-node.final {
+            background-color: #f0fff4;
+            border-color: #48bb78;
+            color: #276749;
+            font-weight: 600;
+        }
+        
+        /* Hover effects */
+        .tree-node:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+        
+        /* Líneas conectoras */
+        .tree-branch {
+            display: inline-block;
+            width: 20px;
+            height: 1px;
+            background-color: #a0aec0;
+            margin: 0 2px;
+            vertical-align: middle;
+        }
+        
+        .tree-vertical {
+            width: 1px;
+            height: 20px;
+            background-color: #a0aec0;
+            display: inline-block;
+            margin: 2px 0;
+        }
+        
+        /* Filas del árbol */
+        .tree-level {
+            margin: 15px 0;
+            text-align: center;
+        }
+        
+        .tree-level:first-child {
+            margin-top: 0;
+        }
+        
+        /* Etiquetas de nivel */
+        .tree-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 10px;
+            text-align: left;
+        }
+        
+        /* Contador de resultados */
+        .tree-count {
+            background-color: #feb2b2;
+            color: #742a2a;
+            border-color: #fc8181;
+            font-weight: 700;
+            padding: 6px 10px;
+            border-radius: 20px;
+            margin: 5px;
+            display: inline-block;
+        }
+        
+        /* Paths individuales */
+        .tree-path {
+            background-color: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 4px;
+            padding: 4px 8px;
+            margin: 2px;
+            font-size: 11px;
+            color: #4a5568;
+            display: inline-block;
+        }
+        
+        /* Animaciones */
+        @keyframes treeGrow {
+            0% { opacity: 0; transform: scale(0.8); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+        
+        .tree-animate {
+            animation: treeGrow 0.5s ease-out;
+        }
+        
+        /* Estilos responsive */
+        @media (max-width: 768px) {
+            .tree-diagram {
+                padding: 10px;
+                font-size: 11px;
+            }
+            
+            .tree-node {
+                padding: 6px 8px;
+                font-size: 10px;
+                min-width: 30px;
+            }
+        }
+        
+        /* MODO OSCURO PARA DIAGRAMAS DE ÁRBOL */
+        .dark-mode .tree-diagram {
+            background: linear-gradient(135deg, #2d3748 0%, #1a202c 100%);
+            border-color: #4a5568;
+            color: #e2e8f0;
+        }
+        
+        .dark-mode .tree-node {
+            background-color: #4a5568;
+            border-color: #718096;
+            color: #f7fafc;
+        }
+        
+        .dark-mode .tree-node.level-0 {
+            background-color: #234e52;
+            border-color: #38b2ac;
+            color: #e6fffa;
+        }
+        
+        .dark-mode .tree-node.level-1 {
+            background-color: #2a4365;
+            border-color: #4299e1;
+            color: #ebf8ff;
+        }
+        
+        .dark-mode .tree-node.level-2 {
+            background-color: #44337a;
+            border-color: #9f7aea;
+            color: #faf5ff;
+        }
+        
+        .dark-mode .tree-node.level-3 {
+            background-color: #7b341e;
+            border-color: #ed8936;
+            color: #fffaf0;
+        }
+        
+        .dark-mode .tree-node.final {
+            background-color: #276749;
+            border-color: #48bb78;
+            color: #f0fff4;
+        }
+        
+        .dark-mode .tree-branch,
+        .dark-mode .tree-vertical {
+            background-color: #718096;
+        }
+        
+        .dark-mode .tree-label {
+            color: #cbd5e0;
+        }
+        
+        .dark-mode .tree-count {
+            background-color: #742a2a;
+            color: #feb2b2;
+            border-color: #e53e3e;
+        }
+        
+        .dark-mode .tree-path {
+            background-color: #4a5568;
+            border-color: #718096;
+            color: #e2e8f0;
+        }
     

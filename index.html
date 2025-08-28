@@ -55,6 +55,9 @@
                 <button class="tab-btn bg-gray-200 hover:bg-gray-300 px-4 py-3 rounded-t-lg" data-tab="bayes">
                     <i class="fas fa-brain mr-2"></i>Teorema de Bayes
                 </button>
+                <button class="tab-btn bg-gray-200 hover:bg-gray-300 px-4 py-3 rounded-t-lg" data-tab="teoria-conteo">
+                    <i class="fas fa-sort-numeric-up mr-2"></i>Teoría de Conteo
+                </button>
             </div>
         </div>
     </nav>
@@ -707,6 +710,620 @@
                 </div>
             </div>
         </div>
+
+        <!-- Teoría de Conteo -->
+        <div id="teoria-conteo" class="tab-content">
+            <h2 class="text-3xl font-bold mb-6 text-center">Teoría de Conteo</h2>
+            
+            <!-- Introducción a los Principios de Conteo -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-info-circle mr-2"></i>Principios Fundamentales de Conteo
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="formula-box">
+                        <h4 class="font-bold mb-3">Principio Fundamental de Conteo</h4>
+                        <p class="text-sm mb-3">Si un proceso consta de $k$ etapas independientes, donde la primera etapa puede realizarse de $n_1$ maneras, la segunda de $n_2$ maneras, etc., entonces el proceso completo puede realizarse de:</p>
+                        <div class="text-lg text-center">$$n_1 \times n_2 \times ... \times n_k \text{ maneras}$$</div>
+                    </div>
+                    
+                    <div class="formula-box">
+                        <h4 class="font-bold mb-3">Principio de Adición</h4>
+                        <p class="text-sm mb-3">Si tenemos dos conjuntos disjuntos $A$ y $B$, entonces el número total de elementos en $A \cup B$ es:</p>
+                        <div class="text-lg text-center">$$|A \cup B| = |A| + |B|$$</div>
+                        <p class="text-xs mt-2 text-gray-600">Solo válido cuando $A \cap B = \emptyset$</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Calculadora de Principio Fundamental -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-calculator mr-2"></i>Calculadora del Principio Fundamental
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Número de etapas:</label>
+                                <select id="numStages" class="w-full p-2 border rounded">
+                                    <option value="2">2 etapas</option>
+                                    <option value="3">3 etapas</option>
+                                    <option value="4">4 etapas</option>
+                                    <option value="5">5 etapas</option>
+                                </select>
+                            </div>
+                            
+                            <div id="stagesInputs" class="space-y-3">
+                                <!-- Se generarán dinámicamente -->
+                            </div>
+                            
+                            <button id="calculateFundamental" class="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600">
+                                <i class="fas fa-calculator mr-2"></i>Calcular Total
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div id="fundamentalResult" class="bg-gray-50 p-4 rounded">
+                            <h4 class="font-semibold mb-3">Resultado:</h4>
+                            <div id="fundamentalCalculation" class="text-lg mb-3">
+                                Selecciona las opciones para cada etapa
+                            </div>
+                            <div id="fundamentalExplanation" class="text-sm text-gray-600">
+                                <!-- Explicación del cálculo -->
+                            </div>
+                        </div>
+                        
+                        <div class="mt-4 p-3 bg-blue-50 border-l-4 border-blue-400 text-sm">
+                            <strong>Ejemplo:</strong> Para elegir un menú con 3 tipos de entrada, 4 platos principales y 2 postres: 3 × 4 × 2 = 24 combinaciones posibles.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Permutaciones -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-exchange-alt mr-2"></i>Permutaciones
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <div class="formula-box mb-4">
+                            <h4 class="font-bold mb-3">Permutaciones sin Repetición</h4>
+                            <p class="text-sm mb-3">Número de maneras de ordenar $n$ objetos distintos:</p>
+                            <div class="text-xl text-center">$$P_n = n!$$</div>
+                            <p class="text-xs mt-2 text-gray-600">donde $n! = n \times (n-1) \times (n-2) \times ... \times 1$</p>
+                        </div>
+                        
+                        <div class="formula-box mb-4">
+                            <h4 class="font-bold mb-3">Permutaciones de $n$ tomados de $r$</h4>
+                            <p class="text-sm mb-3">Ordenaciones de $r$ objetos seleccionados de $n$ objetos distintos:</p>
+                            <div class="text-xl text-center">$$P(n,r) = \frac{n!}{(n-r)!}$$</div>
+                        </div>
+                        
+                        <div class="formula-box">
+                            <h4 class="font-bold mb-3">Permutaciones con Repetición</h4>
+                            <p class="text-sm mb-3">$n$ objetos donde hay $n_1$ del tipo 1, $n_2$ del tipo 2, etc.:</p>
+                            <div class="text-lg text-center">$$\frac{n!}{n_1! \times n_2! \times ... \times n_k!}$$</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-4">Calculadora de Permutaciones</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Tipo de permutación:</label>
+                                <select id="permType" class="w-full p-2 border rounded">
+                                    <option value="simple">Permutaciones simples (n!)</option>
+                                    <option value="partial">Permutaciones parciales P(n,r)</option>
+                                    <option value="repetition">Con repetición</option>
+                                </select>
+                            </div>
+                            
+                            <div id="permInputs">
+                                <!-- Se generarán según el tipo -->
+                            </div>
+                            
+                            <button id="calculatePerm" class="w-full bg-green-500 text-white p-3 rounded hover:bg-green-600">
+                                Calcular Permutaciones
+                            </button>
+                            
+                            <div id="permResult" class="bg-gray-50 p-4 rounded">
+                                <div id="permCalculation"></div>
+                                <div id="permExplanation" class="text-sm text-gray-600 mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Variaciones -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-arrows-alt mr-2"></i>Variaciones (Arreglos)
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <div class="formula-box mb-4">
+                            <h4 class="font-bold mb-3">Variaciones sin Repetición</h4>
+                            <p class="text-sm mb-3">Seleccionar y ordenar $r$ objetos de $n$ objetos distintos:</p>
+                            <div class="text-xl text-center">$$V(n,r) = P(n,r) = \frac{n!}{(n-r)!}$$</div>
+                            <p class="text-xs mt-2 text-gray-600">El orden importa y no se pueden repetir elementos</p>
+                        </div>
+                        
+                        <div class="formula-box">
+                            <h4 class="font-bold mb-3">Variaciones con Repetición</h4>
+                            <p class="text-sm mb-3">Seleccionar y ordenar $r$ objetos de $n$ tipos, permitiendo repetición:</p>
+                            <div class="text-xl text-center">$$VR(n,r) = n^r$$</div>
+                            <p class="text-xs mt-2 text-gray-600">Se pueden repetir elementos</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-4">Calculadora de Variaciones</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Tipo de variación:</label>
+                                <select id="varType" class="w-full p-2 border rounded">
+                                    <option value="without">Sin repetición V(n,r)</option>
+                                    <option value="with">Con repetición VR(n,r) = n^r</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Número total de elementos (n):</label>
+                                <input type="number" id="varN" class="w-full p-2 border rounded" min="1" value="5">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Elementos a seleccionar (r):</label>
+                                <input type="number" id="varR" class="w-full p-2 border rounded" min="1" value="3">
+                            </div>
+                            
+                            <button id="calculateVar" class="w-full bg-purple-500 text-white p-3 rounded hover:bg-purple-600">
+                                Calcular Variaciones
+                            </button>
+                            
+                            <div id="varResult" class="bg-gray-50 p-4 rounded">
+                                <div id="varCalculation"></div>
+                                <div id="varExplanation" class="text-sm text-gray-600 mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Combinaciones -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-layer-group mr-2"></i>Combinaciones
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <div class="formula-box mb-4">
+                            <h4 class="font-bold mb-3">Combinaciones sin Repetición</h4>
+                            <p class="text-sm mb-3">Seleccionar $r$ objetos de $n$ objetos distintos (sin importar el orden):</p>
+                            <div class="text-xl text-center">$$C(n,r) = \binom{n}{r} = \frac{n!}{r!(n-r)!}$$</div>
+                            <p class="text-xs mt-2 text-gray-600">El orden NO importa</p>
+                        </div>
+                        
+                        <div class="formula-box">
+                            <h4 class="font-bold mb-3">Combinaciones con Repetición</h4>
+                            <p class="text-sm mb-3">Seleccionar $r$ objetos de $n$ tipos, permitiendo repetición:</p>
+                            <div class="text-lg text-center">$$CR(n,r) = \binom{n+r-1}{r} = \frac{(n+r-1)!}{r!(n-1)!}$$</div>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-semibold mb-4">Calculadora de Combinaciones</h4>
+                        
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Tipo de combinación:</label>
+                                <select id="combType" class="w-full p-2 border rounded">
+                                    <option value="without">Sin repetición C(n,r)</option>
+                                    <option value="with">Con repetición CR(n,r)</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Número total de elementos (n):</label>
+                                <input type="number" id="combN" class="w-full p-2 border rounded" min="1" value="10">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Elementos a seleccionar (r):</label>
+                                <input type="number" id="combR" class="w-full p-2 border rounded" min="1" value="3">
+                            </div>
+                            
+                            <button id="calculateComb" class="w-full bg-orange-500 text-white p-3 rounded hover:bg-orange-600">
+                                Calcular Combinaciones
+                            </button>
+                            
+                            <div id="combResult" class="bg-gray-50 p-4 rounded">
+                                <div id="combCalculation"></div>
+                                <div id="combExplanation" class="text-sm text-gray-600 mt-2"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Comparativa y Ejemplos -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-balance-scale mr-2"></i>Comparativa: Permutaciones vs Variaciones vs Combinaciones
+                </h3>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full border-collapse border border-gray-300">
+                        <thead>
+                            <tr class="bg-gray-100">
+                                <th class="border border-gray-300 p-3 text-left">Concepto</th>
+                                <th class="border border-gray-300 p-3 text-left">¿Importa el orden?</th>
+                                <th class="border border-gray-300 p-3 text-left">¿Se usan todos?</th>
+                                <th class="border border-gray-300 p-3 text-left">Fórmula</th>
+                                <th class="border border-gray-300 p-3 text-left">Ejemplo</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="border border-gray-300 p-3"><strong>Permutaciones</strong></td>
+                                <td class="border border-gray-300 p-3">✓ Sí</td>
+                                <td class="border border-gray-300 p-3">✓ Sí</td>
+                                <td class="border border-gray-300 p-3">$n!$</td>
+                                <td class="border border-gray-300 p-3">Ordenar 5 personas</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="border border-gray-300 p-3"><strong>Variaciones</strong></td>
+                                <td class="border border-gray-300 p-3">✓ Sí</td>
+                                <td class="border border-gray-300 p-3">✗ No</td>
+                                <td class="border border-gray-300 p-3">$\frac{n!}{(n-r)!}$</td>
+                                <td class="border border-gray-300 p-3">Podio de 3 de 10 atletas</td>
+                            </tr>
+                            <tr>
+                                <td class="border border-gray-300 p-3"><strong>Combinaciones</strong></td>
+                                <td class="border border-gray-300 p-3">✗ No</td>
+                                <td class="border border-gray-300 p-3">✗ No</td>
+                                <td class="border border-gray-300 p-3">$\frac{n!}{r!(n-r)!}$</td>
+                                <td class="border border-gray-300 p-3">Elegir 3 de 10 personas</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Problemas con Diagramas de Árbol -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-sitemap mr-2"></i>Problemas Resueltos con Diagramas de Árbol
+                </h3>
+                
+                <div class="mb-6 p-4 bg-blue-50 border-l-4 border-blue-400 rounded">
+                    <h4 class="font-semibold text-blue-800 mb-2">¿Qué son los Diagramas de Árbol?</h4>
+                    <p class="text-blue-700 text-sm">Los diagramas de árbol son representaciones gráficas que muestran todas las posibles secuencias de eventos en un proceso de selección. Son especialmente útiles para visualizar y contar permutaciones, variaciones y combinaciones de manera sistemática.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <!-- Selector de Problema -->
+                    <div>
+                        <h4 class="font-semibold mb-4">Problemas Disponibles</h4>
+                        <div class="space-y-3">
+                            <button id="treeProblem1" class="w-full text-left p-3 bg-gradient-to-r from-blue-50 to-blue-100 border border-blue-200 rounded hover:from-blue-100 hover:to-blue-200 transition-all">
+                                <div class="font-semibold text-blue-800">🎲 Problema 1: Lanzamiento de Monedas</div>
+                                <div class="text-sm text-blue-600">Lanzar 3 monedas consecutivas</div>
+                            </button>
+                            
+                            <button id="treeProblem2" class="w-full text-left p-3 bg-gradient-to-r from-green-50 to-green-100 border border-green-200 rounded hover:from-green-100 hover:to-green-200 transition-all">
+                                <div class="font-semibold text-green-800">👕 Problema 2: Elección de Ropa</div>
+                                <div class="text-sm text-green-600">Combinar 2 camisas, 3 pantalones, 2 zapatos</div>
+                            </button>
+                            
+                            <button id="treeProblem3" class="w-full text-left p-3 bg-gradient-to-r from-purple-50 to-purple-100 border border-purple-200 rounded hover:from-purple-100 hover:to-purple-200 transition-all">
+                                <div class="font-semibold text-purple-800">🍕 Problema 3: Pizza Personalizada</div>
+                                <div class="text-sm text-purple-600">Elegir tamaño, masa y 2 ingredientes</div>
+                            </button>
+                            
+                            <button id="treeProblem4" class="w-full text-left p-3 bg-gradient-to-r from-orange-50 to-orange-100 border border-orange-200 rounded hover:from-orange-100 hover:to-orange-200 transition-all">
+                                <div class="font-semibold text-orange-800">🏆 Problema 4: Competencia Deportiva</div>
+                                <div class="text-sm text-orange-600">Podio de 3 lugares entre 5 atletas</div>
+                            </button>
+                            
+                            <button id="treeProblem5" class="w-full text-left p-3 bg-gradient-to-r from-red-50 to-red-100 border border-red-200 rounded hover:from-red-100 hover:to-red-200 transition-all">
+                                <div class="font-semibold text-red-800">🔐 Problema 5: Código de Seguridad</div>
+                                <div class="text-sm text-red-600">Generar código de 4 dígitos únicos</div>
+                            </button>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-gray-50 border border-gray-200 rounded">
+                            <h5 class="font-semibold mb-2">Instrucciones:</h5>
+                            <p class="text-sm text-gray-600">Haz clic en cualquier problema para ver su diagrama de árbol interactivo, la explicación paso a paso y el cálculo detallado.</p>
+                        </div>
+                    </div>
+                    
+                    <!-- Área de Visualización -->
+                    <div>
+                        <div id="treeVisualization" class="bg-gray-50 p-6 rounded border min-h-96 overflow-auto">
+                            <div class="text-center text-gray-500 mt-20">
+                                <i class="fas fa-mouse-pointer text-4xl mb-4"></i>
+                                <p>Selecciona un problema para ver su diagrama de árbol</p>
+                            </div>
+                        </div>
+                        
+                        <div id="treeSolution" class="mt-4 p-4 bg-green-50 border-l-4 border-green-400 rounded hidden">
+                            <!-- Solución aparecerá aquí -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problemas Avanzados con Diagramas de Árbol -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-graduation-cap mr-2"></i>Problemas Avanzados con Diagramas de Árbol
+                </h3>
+                
+                <div class="mb-6 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-lg border-l-4 border-blue-500">
+                    <h4 class="font-semibold text-blue-800 mb-2">🎯 Problemas Tipo Examen</h4>
+                    <p class="text-sm text-blue-700">Problemas complejos que requieren análisis cuidadoso del tipo de conteo y construcción detallada del diagrama de árbol.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-4 mb-6">
+                    <div class="border-2 border-purple-200 rounded-lg p-4 hover:border-purple-400 transition-colors cursor-pointer" onclick="loadAdvancedProblem('conditional')">
+                        <div class="text-center">
+                            <div class="text-3xl mb-2">🔄</div>
+                            <div class="font-semibold text-purple-800">Problema 1: Probabilidad Condicional</div>
+                            <div class="text-sm text-purple-600 mt-2">Extracción sin reposición de bolas de colores</div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-2 border-green-200 rounded-lg p-4 hover:border-green-400 transition-colors cursor-pointer" onclick="loadAdvancedProblem('paths')">
+                        <div class="text-center">
+                            <div class="text-3xl mb-2">🛣️</div>
+                            <div class="font-semibold text-green-800">Problema 2: Caminos en Cuadrícula</div>
+                            <div class="text-sm text-green-600 mt-2">Rutas posibles en una malla rectangular</div>
+                        </div>
+                    </div>
+                    
+                    <div class="border-2 border-orange-200 rounded-lg p-4 hover:border-orange-400 transition-colors cursor-pointer" onclick="loadAdvancedProblem('selection')">
+                        <div class="text-center">
+                            <div class="text-3xl mb-2">👥</div>
+                            <div class="font-semibold text-orange-800">Problema 3: Selección con Restricciones</div>
+                            <div class="text-sm text-orange-600 mt-2">Formación de equipos con condiciones especiales</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="advancedProblemArea" class="border border-gray-200 rounded-lg p-6 bg-gray-50 min-h-96">
+                    <div class="text-center text-gray-500 mt-20">
+                        <i class="fas fa-hand-point-up text-4xl mb-4"></i>
+                        <p class="text-lg">Selecciona un problema para ver su análisis completo con diagrama de árbol</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Problemas Resueltos -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-lightbulb mr-2"></i>Problemas Resueltos Paso a Paso
+                </h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Problema 1 -->
+                    <div class="border border-gray-200 p-4 rounded">
+                        <h4 class="font-semibold mb-3 text-blue-800">Problema 1: Contraseñas</h4>
+                        <div class="bg-blue-50 p-3 rounded mb-3">
+                            <p class="text-sm">¿Cuántas contraseñas de 4 dígitos se pueden formar con los dígitos 1, 2, 3, 4, 5 si no se pueden repetir dígitos?</p>
+                        </div>
+                        <button id="solveProblem1" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 w-full mb-3">
+                            Mostrar Solución
+                        </button>
+                        <div id="solution1" class="hidden bg-gray-50 p-3 rounded text-sm">
+                            <!-- Solución se mostrará aquí -->
+                        </div>
+                    </div>
+                    
+                    <!-- Problema 2 -->
+                    <div class="border border-gray-200 p-4 rounded">
+                        <h4 class="font-semibold mb-3 text-green-800">Problema 2: Comité</h4>
+                        <div class="bg-green-50 p-3 rounded mb-3">
+                            <p class="text-sm">De un grupo de 12 personas, ¿de cuántas maneras se puede formar un comité de 5 personas?</p>
+                        </div>
+                        <button id="solveProblem2" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 w-full mb-3">
+                            Mostrar Solución
+                        </button>
+                        <div id="solution2" class="hidden bg-gray-50 p-3 rounded text-sm">
+                            <!-- Solución se mostrará aquí -->
+                        </div>
+                    </div>
+                    
+                    <!-- Problema 3 -->
+                    <div class="border border-gray-200 p-4 rounded">
+                        <h4 class="font-semibold mb-3 text-purple-800">Problema 3: Ordenación con Repetición</h4>
+                        <div class="bg-purple-50 p-3 rounded mb-3">
+                            <p class="text-sm">¿De cuántas maneras se pueden ordenar las letras de la palabra "ESTADÍSTICA"?</p>
+                        </div>
+                        <button id="solveProblem3" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 w-full mb-3">
+                            Mostrar Solución
+                        </button>
+                        <div id="solution3" class="hidden bg-gray-50 p-3 rounded text-sm">
+                            <!-- Solución se mostrará aquí -->
+                        </div>
+                    </div>
+                    
+                    <!-- Problema 4 -->
+                    <div class="border border-gray-200 p-4 rounded">
+                        <h4 class="font-semibold mb-3 text-red-800">Problema 4: Distribución de Objetos</h4>
+                        <div class="bg-red-50 p-3 rounded mb-3">
+                            <p class="text-sm">¿De cuántas maneras se pueden distribuir 8 libros idénticos entre 3 estudiantes?</p>
+                        </div>
+                        <button id="solveProblem4" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 w-full mb-3">
+                            Mostrar Solución
+                        </button>
+                        <div id="solution4" class="hidden bg-gray-50 p-3 rounded text-sm">
+                            <!-- Solución se mostrará aquí -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Generador de Problemas -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-random mr-2"></i>Generador de Problemas de Práctica
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Tipo de problema:</label>
+                                <select id="problemType" class="w-full p-2 border rounded">
+                                    <option value="permutation">Permutaciones</option>
+                                    <option value="variation">Variaciones</option>
+                                    <option value="combination">Combinaciones</option>
+                                    <option value="mixed">Mixto</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Dificultad:</label>
+                                <select id="problemDifficulty" class="w-full p-2 border rounded">
+                                    <option value="easy">Fácil</option>
+                                    <option value="medium">Medio</option>
+                                    <option value="hard">Difícil</option>
+                                </select>
+                            </div>
+                            
+                            <button id="generateProblem" class="w-full bg-indigo-500 text-white p-3 rounded hover:bg-indigo-600">
+                                <i class="fas fa-dice mr-2"></i>Generar Problema
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div id="generatedProblem" class="bg-gray-50 p-4 rounded min-h-32">
+                            <p class="text-gray-500 text-center">Haz clic en "Generar Problema" para crear un ejercicio de práctica</p>
+                        </div>
+                        
+                        <div class="mt-4 space-x-2">
+                            <button id="showHint" class="bg-yellow-500 text-white px-4 py-2 rounded hover:bg-yellow-600 disabled:opacity-50" disabled>
+                                💡 Mostrar Pista
+                            </button>
+                            <button id="showSolution" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 disabled:opacity-50" disabled>
+                                ✅ Ver Solución
+                            </button>
+                        </div>
+                        
+                        <div id="problemHint" class="hidden mt-3 p-3 bg-yellow-50 border-l-4 border-yellow-400 rounded text-sm">
+                            <!-- Pista aparecerá aquí -->
+                        </div>
+                        
+                        <div id="problemSolution" class="hidden mt-3 p-3 bg-green-50 border-l-4 border-green-400 rounded text-sm">
+                            <!-- Solución aparecerá aquí -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Triángulo de Pascal Interactivo -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-mountain mr-2"></i>Triángulo de Pascal Interactivo
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-4">Configuración</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Número de filas (n):</label>
+                                <input type="number" id="pascalRows" class="w-full p-2 border rounded" min="0" max="15" value="6">
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Resaltar columna (k):</label>
+                                <input type="number" id="pascalHighlight" class="w-full p-2 border rounded" min="0" value="2">
+                            </div>
+                            
+                            <button id="generatePascal" class="w-full bg-indigo-500 text-white p-3 rounded hover:bg-indigo-600 mt-4" style="display: block !important;">
+                                <i class="fas fa-play mr-2"></i>🔺 Generar Triángulo
+                            </button>
+                        </div>
+                        
+                        <div class="mt-6 p-4 bg-blue-50 border-l-4 border-blue-400 text-sm">
+                            <h5 class="font-semibold mb-2">¿Sabías que...?</h5>
+                            <p>Cada número en el Triángulo de Pascal es exactamente C(n,k), donde n es la fila y k es la posición en esa fila (empezando desde 0).</p>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div id="pascalResult" class="bg-gray-50 p-4 rounded min-h-80 overflow-y-auto">
+                            <p class="text-gray-500 text-center">Configura los parámetros y genera el triángulo</p>
+                        </div>
+                        
+                        <div id="pascalStats" class="mt-4 p-3 bg-green-50 border-l-4 border-green-400 text-sm">
+                            <!-- Información sobre el valor resaltado aparecerá aquí -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Simulador Visual -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-eye mr-2"></i>Simulador Visual de Combinatorias
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div>
+                        <h4 class="font-semibold mb-4">Configuración</h4>
+                        <div class="space-y-3">
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Visualizar:</label>
+                                <select id="visualizationType" class="w-full p-2 border rounded">
+                                    <option value="permutation">Permutaciones de elementos</option>
+                                    <option value="combination">Combinaciones de elementos</option>
+                                    <option value="tree">Árbol de decisión</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label class="block text-sm font-medium mb-2">Elementos (separados por comas):</label>
+                                <input type="text" id="elementsInput" class="w-full p-2 border rounded" value="A,B,C,D" placeholder="A,B,C,D">
+                            </div>
+                            
+                            <div id="sizeInput">
+                                <label class="block text-sm font-medium mb-2">Tamaño del grupo:</label>
+                                <input type="number" id="groupSize" class="w-full p-2 border rounded" min="1" max="10" value="2">
+                            </div>
+                            
+                            <button id="visualize" class="w-full bg-teal-500 text-white p-3 rounded hover:bg-teal-600 mt-4" style="display: block !important; background-color: #14b8a6 !important; color: white !important; padding: 12px !important; border-radius: 6px !important; font-weight: bold !important;">
+                                <i class="fas fa-play mr-2"></i>🎯 Visualizar Resultados
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <div id="visualizationResult" class="bg-gray-50 p-4 rounded min-h-64 overflow-y-auto">
+                            <p class="text-gray-500 text-center">Selecciona los parámetros y haz clic en "Visualizar"</p>
+                        </div>
+                        
+                        <div id="visualizationStats" class="mt-4 p-3 bg-blue-50 border-l-4 border-blue-400 text-sm">
+                            <!-- Estadísticas aparecerán aquí -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <!-- Footer -->
@@ -723,5 +1340,6 @@
     <script src="js/TablasDecontingencia.js"></script>
     <script src="js/ProbCondicional.js"></script>
     <script src="js/ToremasDeBayes.js"></script>
+    <script src="js/teoriaDeConteo.js"></script>
 </body>
 </html>

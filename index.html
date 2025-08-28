@@ -55,33 +55,38 @@
         <div id="conjuntos" class="tab-content active">
             <h2 class="text-3xl font-bold mb-6 text-center">Teoría de Conjuntos</h2>
             
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <!-- Diagramas de Venn con GeoGebra -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">
-                        <i class="fas fa-circle-notch mr-2"></i>Diagramas de Venn Interactivos
-                    </h3>
-                    
-                    <div class="mb-4">
-                        <p class="text-sm text-gray-600 mb-3">
-                            Explora los diagramas de Venn y las operaciones entre conjuntos con esta aplicación interactiva especializada:
-                        </p>
-                        <div id="geogebra-container" class="bg-gray-50 border-2 border-gray-200 rounded-lg overflow-hidden" style="height: 450px;">
-                            <!-- GeoGebra application will be embedded here -->
-                        </div>
-                        <div class="mt-3 text-xs text-gray-500">
-                            <i class="fas fa-info-circle mr-1"></i>
-                            Utiliza los controles de la aplicación para explorar diferentes operaciones entre conjuntos.
-                        </div>
+            <!-- Diagramas de Venn con GeoGebra - Sección Principal -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-circle-notch mr-2"></i>Diagramas de Venn Interactivos
+                </h3>
+                
+                <div class="mb-4">
+                    <p class="text-sm text-gray-600 mb-4">
+                        Explora los diagramas de Venn y las operaciones entre conjuntos con esta aplicación interactiva especializada:
+                    </p>
+                    <div id="geogebra-container" class="bg-gray-50 border-2 border-gray-200 rounded-lg overflow-hidden w-full" style="height: 650px;">
+                        <!-- GeoGebra application will be embedded here -->
+                    </div>
+                    <div class="mt-4 text-xs text-gray-500">
+                        <i class="fas fa-info-circle mr-1"></i>
+                        Utiliza los controles de la aplicación para explorar diferentes operaciones entre conjuntos.
+                    </div>
+                    <div class="mt-3 p-3 bg-blue-50 border-l-4 border-blue-400 text-sm text-gray-700">
+                        <p><strong>Nota:</strong> Esta es una aplicación que muestra gráficamente las operaciones entre tres conjuntos, el Autor: LikitMaths 
+                        (<a href="https://www.geogebra.org/m/QWS4wDtE" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:text-blue-800 underline">https://www.geogebra.org/m/QWS4wDtE</a>) 
+                        las elaboró usando GeoGebra.</p>
                     </div>
                 </div>
+            </div>
 
-                <!-- Calculadora de Conjuntos -->
-                <div class="bg-white p-6 rounded-lg shadow-md">
-                    <h3 class="text-xl font-semibold mb-4">
-                        <i class="fas fa-calculator mr-2"></i>Calculadora de Cardinalidad
-                    </h3>
-                    
+            <!-- Calculadora de Conjuntos -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-calculator mr-2"></i>Calculadora de Cardinalidad
+                </h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                     <div class="space-y-4">
                         <div>
                             <label class="block text-sm font-medium mb-2">Conjunto A (separado por comas):</label>
@@ -100,10 +105,10 @@
                         <button id="calculateSets" class="w-full bg-blue-500 text-white p-3 rounded hover:bg-blue-600">
                             <i class="fas fa-calculator mr-2"></i>Calcular Operaciones
                         </button>
-                        
-                        <div id="setResults" class="space-y-2">
-                            <!-- Resultados aparecerán aquí -->
-                        </div>
+                    </div>
+                    
+                    <div id="setResults" class="space-y-2">
+                        <!-- Resultados aparecerán aquí -->
                     </div>
                 </div>
             </div>

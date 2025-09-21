@@ -40,6 +40,9 @@
     <nav class="bg-white shadow-md sticky top-0 z-10">
         <div class="container mx-auto px-4">
             <div class="flex space-x-1 overflow-x-auto">
+                <button class="tab-btn bg-gray-200 hover:bg-gray-300 px-4 py-3 rounded-t-lg" data-tab="videos-recomendados">
+                    <i class="fas fa-video mr-2"></i>Videos Recomendados
+                </button>
                 <button class="tab-btn active bg-blue-500 text-white px-4 py-3 rounded-t-lg" data-tab="conjuntos">
                     <i class="fas fa-circle mr-2"></i>Conjuntos
                 </button>
@@ -64,6 +67,187 @@
 
     <!-- Main Content -->
     <main class="container mx-auto p-4">
+        <!-- Videos Recomendados -->
+        <div id="videos-recomendados" class="tab-content">
+            <h2 class="text-3xl font-bold mb-6 text-center">Videos Recomendados</h2>
+
+            <!-- Introducción -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-info-circle mr-2"></i>Recursos Audiovisuales Complementarios
+                </h3>
+                <p class="text-gray-700 mb-4">
+                    Esta sección contiene una selección curada de videos educativos que complementan los conceptos
+                    de probabilidad y bioestadística presentados en esta aplicación. Los videos están organizados
+                    por nivel de dificultad y tema específico para facilitar tu aprendizaje.
+                </p>
+                <div class="bg-blue-50 p-4 rounded border-l-4 border-blue-400">
+                    <p class="text-sm text-blue-800">
+                        <i class="fas fa-lightbulb mr-2"></i>
+                        <strong>Recomendación:</strong> Te sugerimos ver estos videos después de revisar el contenido
+                        teórico correspondiente en las pestañas de esta aplicación para reforzar tu comprensión.
+                    </p>
+                </div>
+            </div>
+
+            <!-- Videos Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                <!-- Video 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-r from-blue-500 to-blue-600 p-4 text-white">
+                        <h4 class="text-lg font-semibold flex items-center">
+                            <i class="fas fa-play-circle mr-2"></i>Video 1: Conceptos Fundamentales
+                        </h4>
+                        <span class="inline-block bg-blue-400 text-xs px-2 py-1 rounded mt-2">Nivel: Básico</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="aspect-video bg-gray-200 rounded mb-4 flex items-center justify-center">
+                            <a href="https://www.youtube.com/watch?v=6pO6Mm2qJaE" target="_blank" rel="noopener noreferrer"
+                               class="text-blue-600 hover:text-blue-800 text-center">
+                                <i class="fas fa-external-link-alt text-3xl mb-2 block"></i>
+                                <span class="text-sm">Ver en YouTube</span>
+                            </a>
+                        </div>
+                        <h5 class="font-semibold mb-2 text-gray-800">Introducción a la Probabilidad</h5>
+                        <p class="text-sm text-gray-600 mb-3">
+                            Este video proporciona una introducción clara y accesible a los conceptos fundamentales
+                            de probabilidad, incluyendo definiciones básicas, ejemplos prácticos y aplicaciones
+                            en la vida cotidiana.
+                        </p>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <div><i class="fas fa-clock mr-1"></i> Duración: Aproximadamente 15-20 minutos</div>
+                            <div><i class="fas fa-tags mr-1"></i> Temas: Probabilidad básica, espacios muestrales, eventos</div>
+                            <div><i class="fas fa-graduation-cap mr-1"></i> Nivel: Principiante</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-r from-green-500 to-green-600 p-4 text-white">
+                        <h4 class="text-lg font-semibold flex items-center">
+                            <i class="fas fa-play-circle mr-2"></i>Video 2: Aplicaciones Prácticas
+                        </h4>
+                        <span class="inline-block bg-green-400 text-xs px-2 py-1 rounded mt-2">Nivel: Intermedio</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="aspect-video bg-gray-200 rounded mb-4 flex items-center justify-center">
+                            <a href="https://www.youtube.com/watch?v=491-VkDUOQw" target="_blank" rel="noopener noreferrer"
+                               class="text-green-600 hover:text-green-800 text-center">
+                                <i class="fas fa-external-link-alt text-3xl mb-2 block"></i>
+                                <span class="text-sm">Ver en YouTube</span>
+                            </a>
+                        </div>
+                        <h5 class="font-semibold mb-2 text-gray-800">Probabilidad en Situaciones Reales</h5>
+                        <p class="text-sm text-gray-600 mb-3">
+                            Explora cómo se aplican los conceptos de probabilidad en situaciones del mundo real,
+                            incluyendo análisis de datos, toma de decisiones y predicciones estadísticas en
+                            diversos campos profesionales.
+                        </p>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <div><i class="fas fa-clock mr-1"></i> Duración: Aproximadamente 20-25 minutos</div>
+                            <div><i class="fas fa-tags mr-1"></i> Temas: Aplicaciones reales, análisis estadístico, casos de estudio</div>
+                            <div><i class="fas fa-graduation-cap mr-1"></i> Nivel: Intermedio</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-gradient-to-r from-purple-500 to-purple-600 p-4 text-white">
+                        <h4 class="text-lg font-semibold flex items-center">
+                            <i class="fas fa-play-circle mr-2"></i>Video 3: Conceptos Avanzados
+                        </h4>
+                        <span class="inline-block bg-purple-400 text-xs px-2 py-1 rounded mt-2">Nivel: Avanzado</span>
+                    </div>
+                    <div class="p-4">
+                        <div class="aspect-video bg-gray-200 rounded mb-4 flex items-center justify-center">
+                            <a href="https://www.youtube.com/watch?v=XS4YIvVbZt8" target="_blank" rel="noopener noreferrer"
+                               class="text-purple-600 hover:text-purple-800 text-center">
+                                <i class="fas fa-external-link-alt text-3xl mb-2 block"></i>
+                                <span class="text-sm">Ver en YouTube</span>
+                            </a>
+                        </div>
+                        <h5 class="font-semibold mb-2 text-gray-800">Teoremas y Distribuciones Avanzadas</h5>
+                        <p class="text-sm text-gray-600 mb-3">
+                            Profundiza en teoremas importantes de probabilidad, distribuciones complejas y
+                            métodos estadísticos avanzados. Ideal para estudiantes que buscan una comprensión
+                            más profunda de la teoría matemática.
+                        </p>
+                        <div class="space-y-2 text-xs text-gray-500">
+                            <div><i class="fas fa-clock mr-1"></i> Duración: Aproximadamente 25-30 minutos</div>
+                            <div><i class="fas fa-tags mr-1"></i> Temas: Teoremas avanzados, distribuciones, métodos estadísticos</div>
+                            <div><i class="fas fa-graduation-cap mr-1"></i> Nivel: Avanzado</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Guía de Uso -->
+            <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-map mr-2"></i>Guía de Uso de los Videos
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-4 bg-blue-50 rounded-lg">
+                        <div class="text-3xl mb-3">📚</div>
+                        <h4 class="font-semibold mb-2 text-blue-800">Paso 1: Preparación</h4>
+                        <p class="text-sm text-blue-700">
+                            Revisa primero el contenido teórico de la pestaña correspondiente en esta aplicación.
+                        </p>
+                    </div>
+
+                    <div class="text-center p-4 bg-green-50 rounded-lg">
+                        <div class="text-3xl mb-3">🎥</div>
+                        <h4 class="font-semibold mb-2 text-green-800">Paso 2: Visualización</h4>
+                        <p class="text-sm text-green-700">
+                            Mira el video correspondiente a tu nivel y toma notas de los conceptos clave.
+                        </p>
+                    </div>
+
+                    <div class="text-center p-4 bg-purple-50 rounded-lg">
+                        <div class="text-3xl mb-3">🔬</div>
+                        <h4 class="font-semibold mb-2 text-purple-800">Paso 3: Práctica</h4>
+                        <p class="text-sm text-purple-700">
+                            Regresa a la aplicación y practica con los ejercicios interactivos disponibles.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recursos Adicionales -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <h3 class="text-xl font-semibold mb-4">
+                    <i class="fas fa-link mr-2"></i>Recursos Adicionales
+                </h3>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-gray-50 p-4 rounded">
+                        <h4 class="font-semibold mb-3 text-gray-800">
+                            <i class="fas fa-book mr-2"></i>Material de Lectura Complementario
+                        </h4>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li><i class="fas fa-chevron-right mr-2 text-blue-500"></i>Libros de texto de probabilidad y estadística</li>
+                            <li><i class="fas fa-chevron-right mr-2 text-blue-500"></i>Artículos académicos sobre bioestadística</li>
+                            <li><i class="fas fa-chevron-right mr-2 text-blue-500"></i>Ejercicios adicionales en línea</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 p-4 rounded">
+                        <h4 class="font-semibold mb-3 text-gray-800">
+                            <i class="fas fa-users mr-2"></i>Comunidad de Aprendizaje
+                        </h4>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li><i class="fas fa-chevron-right mr-2 text-green-500"></i>Foros de discusión académica</li>
+                            <li><i class="fas fa-chevron-right mr-2 text-green-500"></i>Grupos de estudio en línea</li>
+                            <li><i class="fas fa-chevron-right mr-2 text-green-500"></i>Sesiones de tutoría virtual</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Teoría de Conjuntos -->
         <div id="conjuntos" class="tab-content active">
             <h2 class="text-3xl font-bold mb-6 text-center">Teoría de Conjuntos</h2>
@@ -1335,6 +1519,7 @@
     </footer>
 
     <script src="js/AxiomasYTeoremasDeProbabilidad.js"></script>
+    <script src="js/videosRecomendados.js"></script>
     <script src="js/conjuntos.js"></script>
     <script src="js/probabilidadBasica.js"></script>
     <script src="js/TablasDecontingencia.js"></script>
